@@ -1,9 +1,13 @@
-export default function CurriculumVitae({ lang }: { lang: string }) {
+import { getLanguageContext } from "../components/LanguageContext";
+
+export default function CurriculumVitae() {
+  const { language } = getLanguageContext();
+
   return (
     <div className="w-full h-screen">
-      <h1>{lang === "es" ? "Curriculum Vitae" : "Curriculum Vitae"}</h1>
+      <h1>Curriculum Vitae</h1>
       <iframe
-        src={`/curriculum-vitae/${lang === "es" ? "es" : "en"}.pdf`}
+        src={`/curriculum-vitae/${language}.pdf`}
         className="w-full h-full"
         title="Curriculum Vitae"
       />

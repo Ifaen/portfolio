@@ -1,7 +1,11 @@
-export default function Fallback({ lang }: { lang: string }) {
+import { getLanguageContext } from "../components/LanguageContext";
+
+export default function Fallback() {
+  const { language } = getLanguageContext();
+
   return (
     <div>
-      <h1>{lang === "es" ? "404 - Página no encontrada" : "404 - Page Not Found"}</h1>
+      <h1>{language === "es" ? "404 - Página no encontrada" : "404 - Page Not Found"}</h1>
     </div>
   );
 }
