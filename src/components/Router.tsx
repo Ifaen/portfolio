@@ -4,19 +4,24 @@ import CurriculumVitae from "../pages/CurriculumVitae";
 import Certificates from "../pages/Certificates";
 import CertificateDisplay from "../pages/CertificateDisplay";
 import Fallback from "../pages/Fallback";
+import SettingsModal from "./SettingsModal";
+import { getLanguageContext } from "./LanguageContext";
 
 export default function Router() {
+  const { language } = getLanguageContext();
+
   return (
     <BrowserRouter>
       <Routes>
         {/* Portfolio */}
-        {["/", "/portfolio", "/portafolio"].map(path => (
+        {["/portfolio", "/portafolio"].map(path => (
           <Route
             key={path}
             path={path}
             element={<Portfolio />}
           />
         ))}
+        <Route path="/" element={<Navigate to={language === 'es' ? '/portafolio' : '/portfolio'} replace />} />
 
         {/* Certificates */}
         {["/certificados", "/certificates"].map(path => (
@@ -29,8 +34,8 @@ export default function Router() {
 
         {/* Certificates detail */}
         {[
-          "/certificado/:name",
-          "/certificate/:name",
+          "/certificados/:name",
+          "/certificates/:name",
         ].map(path => (
           <Route
             key={path}
@@ -39,7 +44,7 @@ export default function Router() {
           />
         ))}
 
-        {/* Curriculum Vitae */}
+        {/* Curriculum Vitae, redirect all those directions to curriculum-vitae */}
         <Route path="/curriculum-vitae" element={<CurriculumVitae />} />
         {[
           "/cv",
@@ -56,6 +61,7 @@ export default function Router() {
         {/* Fallback everything that doesn't match */}
         <Route path="*" element={<Fallback />} />
       </Routes>
+      <SettingsModal />
     </BrowserRouter>
   );
 }

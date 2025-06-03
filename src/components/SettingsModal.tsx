@@ -4,6 +4,7 @@ import { Settings } from "lucide-react";
 import { getLanguageContext } from "./LanguageContext";
 import type { Language } from "../lib/types";
 import { PATH_TRANSLATIONS } from "../lib/consts";
+import { useNavigate } from "react-router-dom";
 
 // This allows for any future languages to be added without breaking the code
 function getLanguageIndex(language: Language): number {
@@ -45,6 +46,8 @@ export default function SettingsModal() {
   const [open, setOpen] = useState(false);
   const { language, setLanguage } = getLanguageContext();
 
+  const navigate = useNavigate();
+
   return (
     <>
       <button onClick={() => setOpen(true)} className="fixed top-4 right-4">
@@ -57,20 +60,18 @@ export default function SettingsModal() {
             <h2 className="mb-2">Settings</h2>
 
             <div className="mb-2">
-              <label htmlFor="lang-select" className="block mb-1">Language</label>
+              <label htmlFor="language-select" className="block mb-1">Language</label>
               <select
-                id="lang-select"
+                id="language-select"
                 value={language}
                 onChange={(e) => {
                   const newLanguage = e.target.value as Language;
 
                   const translatedPath = translatePath(window.location.pathname, language, newLanguage);
 
-                  window.history.replaceState(null, '', translatedPath);
-
                   setLanguage(newLanguage);
 
-                  window.location.href = translatedPath;
+                  navigate(translatedPath, { replace: true });
 
                   setOpen(false);
                 }}
