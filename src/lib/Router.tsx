@@ -4,8 +4,8 @@ import CurriculumVitae from "../pages/CurriculumVitae";
 import Certificates from "../pages/Certificates";
 import CertificateDisplay from "../pages/CertificateDisplay";
 import Fallback from "../pages/Fallback";
-import SettingsModal from "./SettingsModal";
-import { getLanguageContext } from "./LanguageContext";
+import SettingsModal from "../components/SettingsModal";
+import { getLanguageContext } from "../components/LanguageContext";
 
 export default function Router() {
   const { language } = getLanguageContext();
@@ -14,43 +14,32 @@ export default function Router() {
     <BrowserRouter>
       <Routes>
         {/* Portfolio */}
-        {["/portfolio", "/portafolio"].map(path => (
-          <Route
-            key={path}
-            path={path}
-            element={<Portfolio />}
-          />
+        {["/portfolio", "/portafolio"].map((path) => (
+          <Route key={path} path={path} element={<Portfolio />} />
         ))}
-        <Route path="/" element={<Navigate to={language === 'es' ? '/portafolio' : '/portfolio'} replace />} />
+        <Route
+          path="/"
+          element={
+            <Navigate
+              to={language === "es" ? "/portafolio" : "/portfolio"}
+              replace
+            />
+          }
+        />
 
         {/* Certificates */}
-        {["/certificados", "/certificates"].map(path => (
-          <Route
-            key={path}
-            path={path}
-            element={<Certificates />}
-          />
+        {["/certificados", "/certificates"].map((path) => (
+          <Route key={path} path={path} element={<Certificates />} />
         ))}
 
         {/* Certificates detail */}
-        {[
-          "/certificados/:name",
-          "/certificates/:name",
-        ].map(path => (
-          <Route
-            key={path}
-            path={path}
-            element={<CertificateDisplay />}
-          />
+        {["/certificados/:name", "/certificates/:name"].map((path) => (
+          <Route key={path} path={path} element={<CertificateDisplay />} />
         ))}
 
         {/* Curriculum Vitae, redirect all those directions to curriculum-vitae */}
         <Route path="/curriculum-vitae" element={<CurriculumVitae />} />
-        {[
-          "/cv",
-          "/curriculum",
-          "/resume",
-        ].map(path => (
+        {["/cv", "/curriculum", "/resume"].map((path) => (
           <Route
             key={path}
             path={path}
