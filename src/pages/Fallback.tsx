@@ -1,11 +1,11 @@
-import { getLanguageContext } from "../components/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 export default function Fallback() {
-  const { language } = getLanguageContext();
+  const { t } = useTranslation();
 
   return (
     <div>
-      <h1>{language === "es" ? "404 - Página no encontrada" : "404 - Page Not Found"}</h1>
+      <h1>{t("fallback.title")}</h1>
     </div>
   );
 }

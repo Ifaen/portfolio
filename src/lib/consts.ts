@@ -1,24 +1,27 @@
 import type { Certificate, Language } from "./types";
 
-export const CERTIFICATES_BY_CATEGORY: Record<Language, Record<string, Certificate[]>> = {
+export const CERTIFICATES_BY_CATEGORY: Record<
+  Language,
+  Record<string, Certificate[]>
+> = {
   en: {
     "English Level": [
       {
         title: "TOEIC Bridge Certificate",
         name: "toeic-bridge",
-        original: "en"
+        original: "en",
       },
       {
         title: "EF SET Certificate",
         name: "ef-set",
-      }
+      },
     ],
-    "University": [
+    University: [
       {
         title: "Professional Degree",
         name: "professional-degree",
-        original: "es"
-      }
+        original: "es",
+      },
     ],
   },
   es: {
@@ -26,34 +29,29 @@ export const CERTIFICATES_BY_CATEGORY: Record<Language, Record<string, Certifica
       {
         title: "Certificado TOEIC Bridge",
         name: "toeic-bridge",
-        original: "en"
-      }, {
+        original: "en",
+      },
+      {
         title: "Certificado EF SET",
         name: "ef-set",
-      }
+      },
     ],
-    "Universidad": [
+    Universidad: [
       {
         title: "Titulo Profesional",
         name: "titulo-profesional",
-        original: "es"
-      }, {
+        original: "es",
+      },
+      {
         title: "Bachiller",
         name: "bachiller",
-        original: "es"
-      }, {
+        original: "es",
+      },
+      {
         title: "Licenciatura UNAB",
         name: "licenciatura",
-        original: "es"
-      }
-    ]
-  }
+        original: "es",
+      },
+    ],
+  },
 } as const;
-
-// Needed when changing language via settings
-export const PATH_TRANSLATIONS = [
-  ["portfolio", "portafolio"],
-  ["certificates", "certificados"],
-  ["certificate", "certificado"],
-  ["professional-degree", "titulo-profesional"],
-];

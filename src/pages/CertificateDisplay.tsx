@@ -3,6 +3,7 @@ import { CERTIFICATES_BY_CATEGORY } from "../lib/consts";
 import { getLanguageContext } from "../components/LanguageContext";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+
 import type { Certificate } from "../lib/types";
 
 export default function CertificateDisplay() {
