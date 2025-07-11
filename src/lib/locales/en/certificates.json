@@ -1,0 +1,21 @@
+{
+  "not_original": "This certificate has not been translated yet, but you can view it in its original language",
+  "categories" : {
+    "english": {
+      "ef-set": {
+        "title": "EF SET Certificate",
+        "url": "ef-set"
+      },
+      "toeic-bridge": {
+        "title": "TOEIC Bridge Certificate",
+        "url": "toeic-bridge"
+      }
+    },
+    "university": {
+      "professional-degree": {
+        "title": "Professional Degree Certificate",
+        "original": "es"
+      }
+    }
+  }
+}

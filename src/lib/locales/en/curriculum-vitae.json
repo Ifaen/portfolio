@@ -1,0 +1,93 @@
+{
+  "title": "Full Stack Developer",
+  "engineer": "Computer and Informatics Engineer",
+  "section": {
+    "experience": "LABORAL EXPERIENCE",
+    "education": "EDUCATION",
+    "hard_skills": "HARD SKILLS",
+    "soft_skills": "SOFT SKILLS",
+    "languages": "LANGUAGES"
+  },
+  "laboral_experience": {
+    "cim_glass": {
+      "title": "CIM Glass",
+      "role": "Full Stack Developer",
+      "bullets": [
+        ""
+      ]
+    },
+    "municipality": {
+      "title": "Municipality of Punta Arenas",
+      "role": "Professional Practice",
+      "bullets": [
+        "Took requirements and designed a mockup for an internal project focused on taking requests for repairs of municipal assets and properties",
+        "Supported in the requirements collection of Municipal Tourism Systems and Intranet",
+        "Acquired practical knowledge in the process of preparing public tenders"
+      ]
+    },
+    "sernapesca": {
+      "title": "Sernapesca",
+      "role": "Intermediate Practice",
+      "bullets": [
+        "Participated in the attention and resolution of OsTickets incidents",
+        "Developed web modules for “Mi Caleta”. A modern frontend for internal processes in Sernapesca",
+        "Carried out the update to current versions of Angular for “Mi Caleta”. Updating dependencies, fixing errors and bugs, as well as testing new features.",
+        "Wrote a remote connection guide using Fortinet for Linux and Windows users",
+        "Participated in Daily Scrums and work meetings with suppliers"
+      ]
+    }
+  },
+  "hard_skills": {
+    "environments": {
+      "name": "Environments and Tools",
+      "bullets": ["Git, GitHub and Gitlab", "Docker", "Linux"]
+    },
+    "languages": {
+      "name": "Languages",
+      "bullets": ["JavaScript and TypeScript", "Python", "Java", "C# and .NET", "C and C++", "Nix"]
+    },
+    "frameworks": {
+      "name": "Frameworks",
+      "bullets": ["Angular", "React", "Laravel", "Django"]
+    },
+    "databases": {
+      "name": "Databases",
+      "bullets": ["PostgreSQL", "MySQL", "Firebase", "SQLite"]
+    },
+    "patterns": {
+      "name": "Design Patterns",
+      "bullets": ["MVVM", "MVC"]
+    }
+  },
+  "soft_skills": {
+    "learning": {
+      "name": "Learning Continuously",
+      "description": "Constant disposition to incorporate new technologies according to the project requirements"
+    },
+    "team": {
+      "name": "Team Work",
+      "description": "Experience collaborating in diverse teams, with focus on communication, cooperation and achievement of objectives"
+    },
+    "proactive": {
+      "name": "Proactivity",
+      "description": "Initiative to detect and advance tasks independently, contributing without constant supervision"
+    },
+    "resilence": {
+      "name": "Resilience",
+      "description": "Capacity to maintain focus and motivation in the face of technical obstacles or unexpected changes"
+    },
+    "kindness": {
+      "name": "Kindness",
+      "description": "Respectful and positive attitude in dealing with colleagues, users and supervisors"
+    },
+    "empathy": {
+      "name": "Empathy",
+      "description": "Capacity to understand and consider the points of view of others, facilitating effective communication and collaboration"
+    }
+  },
+  "education": {
+    "university": "Universidad Andrés Bello (University)",
+    "high_school": "Liceo Luis Alberto Barrera (High School)"
+  },
+  "cv_link": "Resume Online"
+}

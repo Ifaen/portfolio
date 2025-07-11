@@ -1,18 +1,53 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import en from "../locales/en.json";
-import es from "../locales/es.json";
+import common_en from "../locales/en/common.json";
+import common_es from "../locales/es/common.json";
+import settings_en from "../locales/en/settings.json";
+import settings_es from "../locales/es/settings.json";
+import curriculum_vitae_en from "../locales/en/curriculum-vitae.json";
+import curriculum_vitae_es from "../locales/es/curriculum-vitae.json";
+import certificates_en from "../locales/en/certificates.json";
+import certificates_es from "../locales/es/certificates.json";
+import portfolio_en from "../locales/en/portfolio.json";
+import portfolio_es from "../locales/es/portfolio.json";
+import paths_en from "../locales/en/paths.json";
+import paths_es from "../locales/es/paths.json";
 
-i18n.use(initReactI18next).init({
+export default i18n.use(initReactI18next).init({
   resources: {
-    en: { translation: en },
-    es: { translation: es },
+    en: {
+      common: common_en,
+      settings: settings_en,
+      curriculum_vitae: curriculum_vitae_en,
+      certificates: certificates_en,
+      portfolio: portfolio_en,
+      paths: paths_en,
+    },
+    es: {
+      common: common_es,
+      settings: settings_es,
+      curriculum_vitae: curriculum_vitae_es,
+      certificates: certificates_es,
+      portfolio: portfolio_es,
+      paths: paths_es,
+    },
   },
-  lng: "en", // Default language
-  fallbackLng: "en", // In case the translation is not found, fallback to english (or when the word is the same in both languages)
+  // List of all namespaces
+  ns: [
+    "common",
+    "settings",
+    "curriculum_vitae",
+    "certificates",
+    "portfolio",
+    "paths",
+  ],
+  // Default namespace
+  defaultNS: "common",
+  // Default language
+  lng: "en",
+  // In case the translation is not found, fallback to english (or when the word is the same in both languages)
+  fallbackLng: "en",
   interpolation: {
     escapeValue: false,
   },
 });
-
-export default i18n;

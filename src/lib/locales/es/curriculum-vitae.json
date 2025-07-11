@@ -1,0 +1,86 @@
+{
+  "title": "Desarrollador Full Stack",
+  "engineer": "Ingeniero en Computación e Informática",
+  "section": {
+    "experience": "EXPERIENCIA LABORAL",
+    "education": "EDUCACIÓN",
+    "hard_skills": "HABILIDADES TÉCNICAS",
+    "soft_skills": "HABILIDADES BLANDAS",
+    "languages": "IDIOMAS"
+  },
+  "laboral_experience": {
+    "cim_glass": {
+      "title": "CIM Glass",
+      "role": "Full Stack Developer",
+      "bullets": [
+        ""
+      ]
+    },
+    "municipality": {
+      "title": "Ilustre Municipalidad de Punta Arenas",
+      "role": "Práctica Profesional",
+      "bullets": [
+        "Realice toma de requerimientos y diseño de una maqueta para proyecto interno enfocado a toma de solicitudes de reparaciones de bienes e inmuebles municipales",
+        "Apoye en la toma de requerimientos de Sistemas Municipales de Turismo e Intranet",
+        "Adquirí conocimientos prácticos en el proceso de confección de licitaciones públicas"
+      ]
+    },
+    "sernapesca": {
+      "role": "Práctica Intermedia",
+      "bullets": [
+        "Participe en la atención y resolución de incidencias de OsTickets",
+        "Realicé desarrollo de modulos web de “Mi Caleta”. Un Frontend más moderno para procesos internos en Sernapesca",
+        "Lleve a cabo la actualización a versiones actuales de Angular para “Mi Caleta”. Actualizando dependencias, arreglando errores y bugs, además de probar nuevas funcionalidades.",
+        "Escribí una guía de conexión remota usando Fortinet para usuarios de Linux y Windows",
+        "Participé en Daily Scrums y reuniones de trabajo con proveedores"
+      ]
+    }
+  },
+  "hard_skills": {
+    "environments": {
+      "name": "Entornos y Herramientas",
+      "bullets": ["Git, GitHub y Gitlab", "Docker", "Linux"]
+    },
+    "languages": {
+      "name": "Lenguajes",
+      "bullets": ["JavaScript y TypeScript", "Python", "Java", "C# y .NET", "C y C++", "Nix"]
+    },
+    "databases": {
+      "name": "Bases de datos"
+    },
+    "patterns": {
+      "name": "Patrones de Diseño"
+    }
+  },
+  "soft_skills": {
+    "learning": {
+      "name": "Aprendizaje Continuo",
+      "description": "Disposición constante a incorporar nuevas tecnologías según los requerimientos del proyecto"
+    },
+    "team": {
+      "name": "Trabajo en equipo",
+      "description": "Experiencia colaborando en equipos diversos, con enfoque en comunicación, cooperación y cumplimiento de objetivos"
+    },
+    "proactive": {
+      "name": "Proactividad",
+      "description": "Iniciativa para detectar y avanzar tareas de forma independiente, contribuyendo sin necesidad de supervisión constante"
+    },
+    "resilence": {
+      "name": "Resiliencia",
+      "description": "Capacidad para mantener el enfoque y la motivación frente a obstáculos técnicos o cambios inesperados"
+    },
+    "kindness": {
+      "name": "Amabilidad",
+      "description": "Actitud respetuosa y positiva en el trato con compañeros, usuarios y supervisores"
+    },
+    "empathy": {
+      "name": "Empatía",
+      "description": "Capacidad para entender y considerar los puntos de vista de otros, facilitando la comunicación efectiva y la colaboración"
+    }
+  },
+  "education": {
+    "university": "Universidad Andrés Bello",
+    "high_school": "Liceo Luis Alberto Barrera"
+  },
+  "cv_link": "Curriculum en Linea"
+}

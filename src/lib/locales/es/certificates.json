@@ -1,0 +1,22 @@
+{
+  "not_original": "Este certificado todavia no ha sido traducido, pero puede verlo en su idioma original",
+  "categories": {
+    "english": {
+      "ef-set": {
+        "title": "Certificado EF SET",
+        "url": "ef-set"
+      },
+      "toeic-bridge": {
+        "title": "Certificado TOEIC Bridge",
+        "url": "toeic-bridge",
+        "original": "en"
+      }
+    },
+    "university": {
+      "professional-degree": {
+        "title": "Certificado de Titulo Profesional",
+        "url": "titulo-profesional"
+      }
+    }
+  }
+}
