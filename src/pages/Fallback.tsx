@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 
 export default function Fallback() {
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   return (
-    <div>
-      <h1>{t("fallback.title")}</h1>
-    </div>
+    <main className="text-white">
+      <h1>{t("page_not_found")}</h1>
+    </main>
   );
 }

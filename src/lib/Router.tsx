@@ -2,10 +2,11 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Portfolio from "../pages/Portfolio";
 import CurriculumVitae from "../pages/CurriculumVitae";
 import Certificates from "../pages/Certificates";
-import CertificateDisplay from "../pages/CertificateDisplay";
+import CertificatesDisplay from "../pages/CertificatesDisplay";
 import Fallback from "../pages/Fallback";
 import SettingsModal from "../components/SettingsModal";
 import { getLanguageContext } from "../components/LanguageContext";
+import { createPortal } from "react-dom";
 
 export default function Router() {
   const { language } = getLanguageContext();
@@ -34,7 +35,7 @@ export default function Router() {
 
         {/* Certificates detail */}
         {["/certificados/:name", "/certificates/:name"].map((path) => (
-          <Route key={path} path={path} element={<CertificateDisplay />} />
+          <Route key={path} path={path} element={<CertificatesDisplay />} />
         ))}
 
         {/* Curriculum Vitae, redirect all those directions to curriculum-vitae */}
@@ -50,7 +51,7 @@ export default function Router() {
         {/* Fallback everything that doesn't match */}
         <Route path="*" element={<Fallback />} />
       </Routes>
-      <SettingsModal />
+      {createPortal(<SettingsModal />, document.body)}
     </BrowserRouter>
   );
 }

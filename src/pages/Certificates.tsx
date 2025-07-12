@@ -1,40 +1,71 @@
 import { Link, useLocation } from "react-router-dom";
-import { CERTIFICATES_BY_CATEGORY } from "../lib/consts";
-import { getLanguageContext } from "../components/LanguageContext";
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import type { Certificate } from "../lib/types";
+import { CircleAlert, SquareArrowOutUpRight } from "lucide-react";
+import { getLanguageContext } from "../components/LanguageContext";
 
 export default function Certificates() {
-  const { language, setLanguage } = getLanguageContext();
   const location = useLocation();
+  const { t } = useTranslation(["paths", "certificates"]);
+  const { setLanguage } = getLanguageContext();
 
   useEffect(() => {
-    if (/certificados(\/|$)/.test(location.pathname)) {
-      setLanguage('es');
-    } else if (/certificates(\/|$)/.test(location.pathname)) {
-      setLanguage('en');
+    if (location.pathname === "/certificados") {
+      setLanguage("es");
+    } else if (location.pathname === "/certificates") {
+      setLanguage("en");
     }
   }, [location]);
 
   return (
     <>
-      <h1 className="text-2xl font-bold">{language === "es" ? "Certificados" : "Certificates"}</h1>
-      {Object.entries(CERTIFICATES_BY_CATEGORY[language]).map(([category, certificates]) => {
-        return (
-          <div key={category} className="mb-4">
-            <h2>{category}</h2>
-            <div className="grid">
-              {certificates.map((certificate) => (
-                <Link
-                  key={certificate.name}
-                  to={`/${language === "es" ? "certificado" : "certificate"}/${certificate.name}`}
-                >
-                  {certificate.title}
-                </Link>
-              ))}
-            </div>
-          </div>
-        )
-      })}
+      <main className="text-white">
+        <h1 className="text-2xl font-bold">
+          {t("paths:certificates").toUpperCase()}
+        </h1>
+
+        {Object.entries(
+          t("certificates:categories", { returnObjects: true }) as Record<
+            string,
+            Record<string, Certificate>
+          >
+        ).map(([category, certificates], indexCategory) => {
+          return (
+            <section key={indexCategory} className="mb-4">
+              <h2 className="text-xl font-bold">{category}</h2>
+
+              <div className="grid">
+                {Object.values(certificates).map(
+                  (certificate, indexCertificate) => (
+                    <article key={indexCertificate}>
+                      {certificate.url ? (
+                        <Link
+                          to={certificate.url}
+                          className="flex gap-2 items-center"
+                        >
+                          {certificate.title}
+                          <SquareArrowOutUpRight className="w-3 h-3" />
+                        </Link>
+                      ) : (
+                        <>
+                          <button
+                            type="button"
+                            className="flex gap-2 items-center cursor-pointer"
+                          >
+                            {certificate.title}
+                            <CircleAlert className="w-3 h-3" />
+                          </button>
+                        </>
+                      )}
+                    </article>
+                  )
+                )}
+              </div>
+            </section>
+          );
+        })}
+      </main>
     </>
-  )
+  );
 }

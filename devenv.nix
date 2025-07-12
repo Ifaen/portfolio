@@ -3,8 +3,11 @@
     bun
     nodejs
     vite
+    coreutils
   ];
 
-  scripts.start.exec = "bun run dev";
-  scripts.build.exec = "bun run build";
+  scripts = {
+    frontend-start.exec = "bun run dev";
+    build.exec = "bun run build";
+  };
 }

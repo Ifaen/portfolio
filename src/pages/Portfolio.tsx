@@ -1,33 +1,31 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { getLanguageContext } from "../components/LanguageContext";
 import { Link, useLocation } from "react-router-dom";
+import { getLanguageContext } from "../components/LanguageContext";
 
 export default function Portfolio() {
-  const { t, i18n } = useTranslation();
-  const { setLanguage } = getLanguageContext();
+  const { t } = useTranslation("portfolio");
   const location = useLocation();
+  const { setLanguage } = getLanguageContext();
 
   useEffect(() => {
     if (location.pathname === "/portafolio") {
-      i18n.changeLanguage("es");
       setLanguage("es");
     } else if (location.pathname === "/portfolio") {
-      i18n.changeLanguage("en");
       setLanguage("en");
     }
   }, [location]);
 
   return (
     <>
-      <h1 className="text-2xl font-bold">{t("portfolio.title")}</h1>
-      <p>
-        {t("portfolio.work_in_progress")}
-        <br />
-        {t("portfolio.check_later")}
-        <br />
-        <Link to="/curriculum-vitae">{t("portfolio.cv_link")}</Link>
-      </p>
+      <main className="text-white">
+        <h1 className="text-2xl font-bold">{t("title")}</h1>
+        <p>{t("work_in_progress")}</p>
+
+        <p>{t("check_later")}</p>
+
+        <Link to="/curriculum-vitae">{t("cv_link")}</Link>
+      </main>
     </>
   );
 }
