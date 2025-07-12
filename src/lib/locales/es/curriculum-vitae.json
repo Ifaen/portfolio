@@ -11,9 +11,11 @@
   "laboral_experience": {
     "cim_glass": {
       "title": "CIM Glass",
-      "role": "Full Stack Developer",
+      "role": "Desarrollador Freelance",
       "bullets": [
-        ""
+        "Realicé toma de requerimientos, comprendiendo el flujo de trabajo y las necesidades del cliente",
+        "Desarrollé una aplicación web para la gestión de ventas, arriendos y mantenimiento de baños químicos y productos relacionados",
+        "Gestioné el despliegue de la aplicación en un servidor web"
       ]
     },
     "municipality": {
@@ -39,11 +41,11 @@
   "hard_skills": {
     "environments": {
       "name": "Entornos y Herramientas",
-      "bullets": ["Git, GitHub y Gitlab", "Docker", "Linux"]
+      "bullets": ["Git, GitHub y Gitlab", "Docker", "Linux (CLI, scripting, administración de sistemas básico)"]
     },
     "languages": {
       "name": "Lenguajes",
-      "bullets": ["JavaScript y TypeScript", "Python", "Java", "C# y .NET", "C y C++", "Nix"]
+      "bullets": ["JavaScript y TypeScript", "Python", "C y C++", "Nix", "Conocimiento básico: Java, C# y .NET"]
     },
     "databases": {
       "name": "Bases de datos"
