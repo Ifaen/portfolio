@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 import type { Language } from "../lib/types";
 
 interface LanguageContextType {
@@ -6,9 +12,15 @@ interface LanguageContextType {
   setLanguage: (language: Language) => void;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
-export default function LanguageProvider({ children }: { children: ReactNode }) {
+export default function LanguageProvider({
+  children,
+}: {
+  children: ReactNode;
+}) {
   // Initialize state with type safety
   const [language, setLanguage] = useState<Language>(() => {
     const savedLang = localStorage.getItem("language");
@@ -31,7 +43,9 @@ export default function LanguageProvider({ children }: { children: ReactNode }) 
 export function getLanguageContext() {
   const context = useContext(LanguageContext);
   if (!context) {
-    throw new Error("getLanguageContext must be used within a LanguageProvider");
+    throw new Error(
+      "getLanguageContext must be used within a LanguageProvider"
+    );
   }
   return context;
 }

@@ -4,9 +4,8 @@ import CurriculumVitae from "../pages/CurriculumVitae";
 import Certificates from "../pages/Certificates";
 import CertificatesDisplay from "../pages/CertificatesDisplay";
 import Fallback from "../pages/Fallback";
-import SettingsModal from "../components/SettingsModal";
 import { getLanguageContext } from "../components/LanguageContext";
-import { createPortal } from "react-dom";
+import LanguagePanel from "../components/LanguagePanel";
 
 export default function Router() {
   const { language } = getLanguageContext();
@@ -51,7 +50,7 @@ export default function Router() {
         {/* Fallback everything that doesn't match */}
         <Route path="*" element={<Fallback />} />
       </Routes>
-      {createPortal(<SettingsModal />, document.body)}
+      <LanguagePanel />
     </BrowserRouter>
   );
 }

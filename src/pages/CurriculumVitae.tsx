@@ -20,6 +20,7 @@ import cvImage from "../assets/cv-image.jpg";
 import type { Certificate } from "../lib/types";
 import { getLanguageContext } from "../components/LanguageContext";
 import { useLocation } from "react-router-dom";
+import DownloadPDFPanel from "../components/DownloadPDFPanel";
 
 export default function CurriculumVitae() {
   const { t } = useTranslation(["curriculum_vitae", "certificates", "paths"]);
@@ -161,7 +162,10 @@ export default function CurriculumVitae() {
                   <p className="px-1 rounded transition-colors hover:bg-amber-100">
                     {certificate.title}
                   </p>
-                  <SquareArrowOutUpRight className="w-2 h-2" />
+                  <SquareArrowOutUpRight
+                    className="w-2 h-2"
+                    data-html2canvas-ignore
+                  />
                 </a>
               </li>
             ))}
@@ -188,8 +192,11 @@ export default function CurriculumVitae() {
   }
 
   return (
-    <>
-      <main className="bg-white grid overflow-y-auto max-w-[960px] mx-auto shadow-2xl">
+    <div className="bg-gray-800">
+      <main
+        id="cv-content"
+        className="grid overflow-y-auto bg-[#f9f9f9] max-w-[960px] mx-auto "
+      >
         <header className="grid  sm:grid-cols-[1fr_4fr] bg-[#d5c7bc] p-8 gap-2 sm:gap-10">
           <div className="flex justify-center items-center">
             <img
@@ -474,6 +481,7 @@ export default function CurriculumVitae() {
           </div>
         </footer>
       </main>
-    </>
+      <DownloadPDFPanel />
+    </div>
   );
 }

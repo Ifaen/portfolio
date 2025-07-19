@@ -4,8 +4,10 @@
 
 body {
   font-family: "Inter", sans-serif;
-  @apply bg-gray-800;
 }
 
-@layer components {
-}
+/* @layer base {
+  img {
+    display: initial;
+  }
+} */
