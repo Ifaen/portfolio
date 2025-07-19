@@ -9,13 +9,19 @@
     "languages": "LANGUAGES"
   },
   "laboral_experience": {
+    "aventuras_patagonia": {
+      "title": "Aventuras en la Patagonia",
+      "role": "Tour Guide and English-Spanish Translator",
+      "bullets": [
+        "Family-run horseback riding activity, occasionally I've helped with administrative tasks, performing tour guide and English-Spanish translation services"
+      ]
+    },
     "cim_glass": {
       "title": "CIM Glass",
       "role": "Freelancer Developer",
       "bullets": [
         "Took requirements, understanding the workflow and needs of the client",
-        "Developed a web application to manage sales, rentals and maintenance of quimical bathrooms and related products",
-        "Managed the deployment of the application on a web server"
+        "Developed a web application to manage sales, rentals and maintenance of quimical bathrooms and related products"
       ]
     },
     "municipality": {
@@ -32,8 +38,7 @@
       "role": "Intermediate Practice",
       "bullets": [
         "Participated in the attention and resolution of OsTickets incidents",
-        "Developed web modules for “Mi Caleta”. A modern frontend for internal processes in Sernapesca",
-        "Carried out the update to current versions of Angular for “Mi Caleta”. Updating dependencies, fixing errors and bugs, as well as testing new features.",
+        "Developed web modules for “Mi Caleta”, updating dependencies, fixing errors and bugs, as well as testing new features",
         "Wrote a remote connection guide using Fortinet for Linux and Windows users",
         "Participated in Daily Scrums and work meetings with suppliers"
       ]

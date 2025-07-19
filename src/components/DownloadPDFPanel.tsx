@@ -51,7 +51,7 @@ export default function DownloadPDFPanel() {
     >
       <button
         onClick={handleToggle}
-        className="w-full h-full flex items-center justify-center"
+        className="flex justify-center items-center w-full h-full"
         aria-label="Toggle Language Panel"
       >
         {!open && <Download className="w-4 h-4" />}
@@ -65,7 +65,7 @@ export default function DownloadPDFPanel() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.15 }}
-            className="p-3 flex flex-col gap-2"
+            className="flex flex-col gap-2 p-3"
           >
             <div className="flex justify-between items-center mb-2">
               <h2 className="text-sm font-bold">{t("settings:title")}</h2>

@@ -36,26 +36,32 @@ export default function CurriculumVitae() {
   function TimelineItem(props: {
     date: string;
     location: string;
-    url: string;
+    url?: string;
     title: string;
     role: string;
     bullets: string[];
   }): JSX.Element {
     return (
-      <article className="grid grid-cols-2 sm:grid-cols-[6fr_1fr] mx-4 mb-4 sm:mx-0">
+      <article className="grid grid-cols-2 sm:grid-cols-[5fr_1fr] md:grid-cols-[6fr_1fr] lg:grid-cols-[7fr_1fr] xl:grid-cols-[9fr_1fr] mx-4 mb-4 sm:mx-0">
         <header>
           <h3 className="flex">
-            <a
-              href={props.url}
-              className="rounded transition-colors sm:text-lg hover:bg-amber-100"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <strong>{props.title}</strong>
-            </a>
+            {props.url ? (
+              <a
+                href={props.url}
+                className="rounded transition-colors sm:text-lg hover:bg-amber-100"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <strong>{props.title}</strong>
+              </a>
+            ) : (
+              <span className="sm:text-lg">
+                <strong>{props.title}</strong>
+              </span>
+            )}
           </h3>
 
-          <em> {props.role}</em>
+          <em className="hidden sm:block"> {props.role}</em>
         </header>
 
         <aside className="flex flex-col justify-start items-end text-xs sm:justify-center">
@@ -63,7 +69,9 @@ export default function CurriculumVitae() {
           <span>{props.location}</span>
         </aside>
 
-        <section className="flex flex-col col-span-2 text-sm sm:col-span-1">
+        <em className="col-span-2 sm:hidden"> {props.role}</em>
+
+        <section className="flex flex-col col-span-2 text-[15px] sm:col-span-1">
           <ul className="ml-4 list-disc">
             {props.bullets.map((b, i) => (
               <li key={i}>{b}</li>
@@ -195,14 +203,14 @@ export default function CurriculumVitae() {
     <div className="bg-gray-800">
       <main
         id="cv-content"
-        className="grid overflow-y-auto bg-[#f9f9f9] max-w-[960px] mx-auto "
+        className="grid overflow-y-auto bg-white max-w-[1200px] max-h-[1694px] mx-auto "
       >
-        <header className="grid  sm:grid-cols-[1fr_4fr] bg-[#d5c7bc] p-8 gap-2 sm:gap-10">
+        <header className="grid sm:grid-cols-[1fr_3fr] bg-[#d5c7bc] p-8 gap-2 sm:gap-10">
           <div className="flex justify-center items-center">
             <img
               src={cvImage}
-              width={150}
-              height={150}
+              width={180}
+              height={180}
               alt="Selfie of Santiago Fuentes"
               className="object-cover rounded-full"
             />
@@ -210,10 +218,10 @@ export default function CurriculumVitae() {
 
           <section className="flex flex-col gap-y-2 justify-between">
             <div>
-              <h1 className="grid text-2xl font-bold sm:flex sm:gap-3">
+              <h1 className="grid text-2xl sm:text-xl md:text-2xl font-bold sm:flex sm:gap-3">
                 Santiago Fuentes
                 <span className="hidden sm:block">-</span>
-                <span className="text-xl font-normal sm:text-2xl sm:font-bold">
+                <span className="text-xl font-normal sm:text-xl md:text-2xl sm:font-bold">
                   {t("title")}
                 </span>
               </h1>
@@ -221,7 +229,7 @@ export default function CurriculumVitae() {
               <p className="hidden text-xl sm:block">{t("engineer")}</p>
             </div>
 
-            <address className="grid grid-cols-2 gap-y-1.5 justify-center items-center not-italic text-xs sm:text-base">
+            <address className="grid grid-cols-[1.5fr_1fr] sm:grid-cols-2 gap-y-1.5 justify-center items-center not-italic text-xs sm:text-lg">
               <div className="flex gap-2 items-center">
                 <Phone className="w-4 h-4 stroke-[#a13e2d] stroke-3" />
                 <a href="tel:+56986890981">+56 9 8689 0981</a>
@@ -282,9 +290,27 @@ export default function CurriculumVitae() {
           >
             <>
               <TimelineItem
+                date="01/2023 - Presente"
+                location="Punta Arenas, Chile"
+                url="https://www.instagram.com/aventuras_en_la_patagonia"
+                title={t(
+                  "curriculum_vitae:laboral_experience.aventuras_patagonia.title"
+                )}
+                role={t(
+                  "curriculum_vitae:laboral_experience.aventuras_patagonia.role"
+                )}
+                bullets={
+                  t(
+                    "curriculum_vitae:laboral_experience.aventuras_patagonia.bullets",
+                    {
+                      returnObjects: true,
+                    }
+                  ) as string[]
+                }
+              />
+              <TimelineItem
                 date="05/2025 - 06/2025"
                 location="Punta Arenas, Chile"
-                url="https://www.puntaarenas.cl"
                 title={t("curriculum_vitae:laboral_experience.cim_glass.title")}
                 role={t("curriculum_vitae:laboral_experience.cim_glass.role")}
                 bullets={

@@ -46,8 +46,8 @@ async function generatePDF(lang: string) {
 
   await page.pdf({
     path: `public/certificates/${lang}/Santiago-Fuentes-CV.pdf`,
-    width: `${pxToMm(960)}mm`,
-    height: `${pxToMm(1637)}mm`,
+    width: `${pxToMm(1200)}mm`,
+    height: `${pxToMm(1694)}mm`,
     printBackground: true,
   });
 

@@ -9,30 +9,35 @@
     "languages": "IDIOMAS"
   },
   "laboral_experience": {
+    "aventuras_patagonia": {
+      "title": "Aventuras en la Patagonia",
+      "role": "Guia Turistico y Traductor inglés-español",
+      "bullets": [
+        "Pyme de cabalgatas de mi familia, ocasionalmente he ayudado con tareas administrativas, realizando labores de guia turistico y traductor inglés-español"
+      ]
+    },
     "cim_glass": {
       "title": "CIM Glass",
       "role": "Desarrollador Freelance",
       "bullets": [
         "Realicé toma de requerimientos, comprendiendo el flujo de trabajo y las necesidades del cliente",
-        "Desarrollé una aplicación web para la gestión de ventas, arriendos y mantenimiento de baños químicos y productos relacionados",
-        "Gestioné el despliegue de la aplicación en un servidor web"
+        "Desarrollé una aplicación web para la gestión de ventas, arriendos y mantenimiento de baños químicos y productos relacionados"
       ]
     },
     "municipality": {
       "title": "Ilustre Municipalidad de Punta Arenas",
       "role": "Práctica Profesional",
       "bullets": [
+        "Adquirí conocimientos prácticos en el proceso de confección de licitaciones públicas",
         "Realice toma de requerimientos y diseño de una maqueta para proyecto interno enfocado a toma de solicitudes de reparaciones de bienes e inmuebles municipales",
-        "Apoye en la toma de requerimientos de Sistemas Municipales de Turismo e Intranet",
-        "Adquirí conocimientos prácticos en el proceso de confección de licitaciones públicas"
+        "Apoye en la toma de requerimientos de Sistemas Municipales de Turismo e Intranet"
       ]
     },
     "sernapesca": {
       "role": "Práctica Intermedia",
       "bullets": [
         "Participe en la atención y resolución de incidencias de OsTickets",
-        "Realicé desarrollo de modulos web de “Mi Caleta”. Un Frontend más moderno para procesos internos en Sernapesca",
-        "Lleve a cabo la actualización a versiones actuales de Angular para “Mi Caleta”. Actualizando dependencias, arreglando errores y bugs, además de probar nuevas funcionalidades.",
+        "Realicé desarrollo de modulos web de “Mi Caleta”, actualizar dependencias, arreglar bugs y probar nuevas funcionalidades",
         "Escribí una guía de conexión remota usando Fortinet para usuarios de Linux y Windows",
         "Participé en Daily Scrums y reuniones de trabajo con proveedores"
       ]
