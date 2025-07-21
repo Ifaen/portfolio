@@ -1,19 +1,26 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   packages = with pkgs; [
-    bun
-    nodejs
     vite
     coreutils
     chromium # Needed for puppeteer
   ];
+
+  languages.javascript = {
+    enable = true;
+    bun.enable = true;
+  };
 
   env = {
     VITE_URL = "http://localhost:5173";
   };
 
   scripts = {
-    frontend-start.exec = "bun run dev";
+    dev.exec = "bun run dev";
     build.exec = "bun run build";
-    generate-pdf.exec = "bun run $DEVENV_ROOT/src/lib/scripts/generate-cv-pdf.ts";
+    generate-pdf.exec = "bun run ${config.devenv.root}/src/lib/scripts/generate-cv-pdf.ts";
   };
 }
