@@ -2,13 +2,13 @@
   "title": "Full Stack Developer",
   "engineer": "Computer and Informatics Engineer",
   "section": {
-    "experience": "LABORAL EXPERIENCE",
+    "experience": "WORK EXPERIENCE",
     "education": "EDUCATION",
     "hard_skills": "HARD SKILLS",
     "soft_skills": "SOFT SKILLS",
     "languages": "LANGUAGES"
   },
-  "laboral_experience": {
+  "work_experience": {
     "aventuras_patagonia": {
       "title": "Aventuras en la Patagonia",
       "role": "Tour Guide and English-Spanish Translator",
@@ -18,10 +18,10 @@
     },
     "cim_glass": {
       "title": "CIM Glass",
-      "role": "Freelancer Developer",
+      "role": "Freelance Developer",
       "bullets": [
         "Took requirements, understanding the workflow and needs of the client",
-        "Developed a web application to manage sales, rentals and maintenance of quimical bathrooms and related products"
+        "Developed a web application to manage sales, rentals and maintenance of chemical toilets and related products"
       ]
     },
     "municipality": {
@@ -29,7 +29,7 @@
       "role": "Professional Practice",
       "bullets": [
         "Took requirements and designed a mockup for an internal project focused on taking requests for repairs of municipal assets and properties",
-        "Supported in the requirements collection of Municipal Tourism Systems and Intranet",
+        "Assisted in gathering requirements for Municipal Tourism Systems and Intranet",
         "Acquired practical knowledge in the process of preparing public tenders"
       ]
     },
@@ -37,7 +37,7 @@
       "title": "Sernapesca",
       "role": "Intermediate Practice",
       "bullets": [
-        "Participated in the attention and resolution of OsTickets incidents",
+        "Handled and resolved tickets/incidents using OsTickets",
         "Developed web modules for “Mi Caleta”, updating dependencies, fixing errors and bugs, as well as testing new features",
         "Wrote a remote connection guide using Fortinet for Linux and Windows users",
         "Participated in Daily Scrums and work meetings with suppliers"
@@ -68,11 +68,11 @@
   },
   "soft_skills": {
     "learning": {
-      "name": "Learning Continuously",
+      "name": "Continuous Learning",
       "description": "Constant disposition to incorporate new technologies according to the project requirements"
     },
     "team": {
-      "name": "Team Work",
+      "name": "Teamwork",
       "description": "Experience collaborating in diverse teams, with focus on communication, cooperation and achievement of objectives"
     },
     "proactive": {

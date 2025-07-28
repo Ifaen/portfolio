@@ -162,7 +162,7 @@ export default function CurriculumVitae() {
             {Object.entries(props.certificates).map(([_, certificate], i) => (
               <li key={i} className="text-xs">
                 <a
-                  href={`${t("paths:certificates")}/${certificate.url}`}
+                  href={`https://sfuentes.cl/${t("paths:certificates")}/${certificate.url}`}
                   className="flex gap-1 items-center"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -294,14 +294,14 @@ export default function CurriculumVitae() {
                 location="Punta Arenas, Chile"
                 url="https://www.instagram.com/aventuras_en_la_patagonia"
                 title={t(
-                  "curriculum_vitae:laboral_experience.aventuras_patagonia.title"
+                  "curriculum_vitae:work_experience.aventuras_patagonia.title"
                 )}
                 role={t(
-                  "curriculum_vitae:laboral_experience.aventuras_patagonia.role"
+                  "curriculum_vitae:work_experience.aventuras_patagonia.role"
                 )}
                 bullets={
                   t(
-                    "curriculum_vitae:laboral_experience.aventuras_patagonia.bullets",
+                    "curriculum_vitae:work_experience.aventuras_patagonia.bullets",
                     {
                       returnObjects: true,
                     }
@@ -311,10 +311,10 @@ export default function CurriculumVitae() {
               <TimelineItem
                 date="05/2025 - 06/2025"
                 location="Punta Arenas, Chile"
-                title={t("curriculum_vitae:laboral_experience.cim_glass.title")}
-                role={t("curriculum_vitae:laboral_experience.cim_glass.role")}
+                title={t("curriculum_vitae:work_experience.cim_glass.title")}
+                role={t("curriculum_vitae:work_experience.cim_glass.role")}
                 bullets={
-                  t("curriculum_vitae:laboral_experience.cim_glass.bullets", {
+                  t("curriculum_vitae:work_experience.cim_glass.bullets", {
                     returnObjects: true,
                   }) as string[]
                 }
@@ -324,19 +324,12 @@ export default function CurriculumVitae() {
                 date="01/2025 - 03/2025"
                 location="Punta Arenas, Chile"
                 url="https://www.puntaarenas.cl"
-                title={t(
-                  "curriculum_vitae:laboral_experience.municipality.title"
-                )}
-                role={t(
-                  "curriculum_vitae:laboral_experience.municipality.role"
-                )}
+                title={t("curriculum_vitae:work_experience.municipality.title")}
+                role={t("curriculum_vitae:work_experience.municipality.role")}
                 bullets={
-                  t(
-                    "curriculum_vitae:laboral_experience.municipality.bullets",
-                    {
-                      returnObjects: true,
-                    }
-                  ) as string[]
+                  t("curriculum_vitae:work_experience.municipality.bullets", {
+                    returnObjects: true,
+                  }) as string[]
                 }
               />
 
@@ -344,12 +337,10 @@ export default function CurriculumVitae() {
                 date="11/2023 - 01/2024"
                 location="Punta Arenas, Chile"
                 url="https://www.sernapesca.cl"
-                title={t(
-                  "curriculum_vitae:laboral_experience.sernapesca.title"
-                )}
-                role={t("curriculum_vitae:laboral_experience.sernapesca.role")}
+                title={t("curriculum_vitae:work_experience.sernapesca.title")}
+                role={t("curriculum_vitae:work_experience.sernapesca.role")}
                 bullets={
-                  t("curriculum_vitae:laboral_experience.sernapesca.bullets", {
+                  t("curriculum_vitae:work_experience.sernapesca.bullets", {
                     returnObjects: true,
                   }) as string[]
                 }

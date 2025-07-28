@@ -1,6 +1,14 @@
 {
   "title": "Portafolio",
-  "work_in_progress": "Actualmente trabajando en mostrar mis certificados y CV",
-  "check_later": "Revisa más tarde por actualizaciones",
-  "cv_link": "O revisa mi CV en sfuentes.cl/cv"
+  "i_am": {
+    "title": "Soy Santiago Fuentes",
+    "description": "Soy un desarrollador Full Stack localizado en Punta Arenas, Chile. Me dedico a crear aplicaciones web modernas y funcionales.",
+    "description_2": "También me dedico a Freelancing, donde puedo ofrecer mis habilidades a clientes en necesidad de diferentes soluciones."
+  },
+  "credits":{
+    "title": "Creditos",
+    "sunset_background": "Fondo de atardecer",
+    "name": "Nombre",
+    "url": "URL"
+  }
 }
