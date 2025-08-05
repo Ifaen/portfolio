@@ -11,7 +11,7 @@
 
   languages.javascript = {
     enable = true;
-    bun.enable = true;
+    pnpm.enable = true;
   };
 
   env = {
@@ -19,8 +19,8 @@
   };
 
   scripts = {
-    dev.exec = "bun run dev";
-    build.exec = "bun run build";
-    generate-pdf.exec = "bun run ${config.devenv.root}/src/lib/scripts/generate-cv-pdf.ts";
+    dev.exec = "pnpm run dev";
+    build.exec = "pnpm run build";
+    generate-pdf.exec = "pnpm run ${config.devenv.root}/src/lib/scripts/generate-cv-pdf.ts";
   };
 }
