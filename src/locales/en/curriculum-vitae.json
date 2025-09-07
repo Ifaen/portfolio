@@ -93,8 +93,17 @@
     }
   },
   "education": {
-    "university": "Universidad Andrés Bello (University)",
-    "high_school": "Liceo Luis Alberto Barrera (High School)"
+    "university": {
+      "title": "Universidad Andrés Bello (University)",
+      "role": "Computer and Informatics Engineer"
+    },
+    "high_school": {
+      "title": "Liceo Luis Alberto Barrera (High School)",
+      "role": "Student"
+    }
+  },
+  "languages": {
+    "native": "Native"
   },
   "cv_link": "Resume Online"
 }

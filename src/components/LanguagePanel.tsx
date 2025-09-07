@@ -57,7 +57,7 @@ export default function LanguagePanel() {
           setStage("height");
         }
       }}
-      className="fixed top-4 right-4 z-50 bg-[#d5c7bc] text-[#a13e2d] rounded shadow-lg border border-[#a13e2d] overflow-hidden"
+      className="print:hidden fixed top-4 right-4 z-50 bg-[#d5c7bc] text-[#a13e2d] rounded shadow-lg border border-[#a13e2d] overflow-hidden"
     >
       <button
         onClick={handleToggle}

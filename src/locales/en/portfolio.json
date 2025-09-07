@@ -1,0 +1,46 @@
+{
+  "title": "Portfolio",
+  "i_am": {
+    "title": "Hi, I'm Santiago Fuentes!",
+    "description": "A <bold>Full Stack Developer</bold> dedicated to creating modern and responsive applications. I also dedicate myself to <bold>Freelancing</bold>, where I can offer my skills to clients in need of different solutions."
+  },
+  "credits":{
+    "title": "Credits",
+    "sunset_background": "Sunset Background",
+    "name": "Name",
+    "url": "URL"
+  },
+  "about" : {
+    "title": "About me",
+    "description": "<p>I'm a Full Stack Developer and Freelancer from Punta Arenas, Chile, recently graduated with my professional degree.</p><p>I specialize in developing modern and functional web applications, where I feel most at home using React and Django, but I'm always willing to adapt to whatever frameworks or technologies a project requires.</p><p>My current focus is on freelancing, offering tailored solutions for clients while building experience to showcase in my portfolio. Beyond development, I'm passionate about robotics and electronics, love camping and playing volleyball with friends, and in my downtime enjoy gaming and spending time with my pets.</p>",
+    "location": "Location",
+    "age": "Age",
+    "nationality": {
+      "title": "Nationality",
+      "description": "Chilean"
+    },
+    "interests": {
+      "title": "Interests",
+      "description": "Development, Robotics, Camping, Volleyball"
+    },
+    "study": {
+      "title": "Study",
+      "description": "Andrés Bello University"
+    },
+    "work": {
+      "title": "Work",
+      "description": "Currently freelancing"
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "databases": "Databases",
+    "tools_n_env": "Tools"
+  },
+  "contact": {
+    "title": "Let's Create Amazing Projects",
+    "description": "Ready to bring your ideas to life? Send me a message or feedback. I'm always open to new opportunities, improve and challenges.",
+    "button": "Get in touch"
+  },
+  "resume": "View Resume"
+}

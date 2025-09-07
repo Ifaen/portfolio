@@ -1,0 +1,46 @@
+{
+  "title": "Portafolio",
+  "i_am": {
+    "title": "¡Hola, soy Santiago Fuentes!",
+    "description": "Un <bold>Desarrollador Full Stack</bold> dedicado a crear aplicaciones web modernas y funcionales. También me dedico a <bold>Freelancing</bold>, donde puedo ofrecer mis habilidades a clientes en necesidad de diferentes soluciones."
+  },
+  "credits":{
+    "title": "Creditos",
+    "sunset_background": "Fondo de atardecer",
+    "name": "Nombre",
+    "url": "URL"
+  },
+  "about":{
+    "title": "Sobre mí",
+    "description": "<p>Soy un Desarrollador Full Stack y Freelancer de Punta Arenas, Chile, recientemente egresado con mi título profesional.</p><p>Me especializo en el desarrollo de aplicaciones web modernas y funcionales, soy más proficiente con React y Django, pero siempre estoy dispuesto a adaptarme a cualquier framework o tecnología que requiera un proyecto.</p><p>Actualmente me enfoco en freelancing, ofreciendo soluciones personalizadas para clientes mientras construyo experiencia para mostrar en mi portafolio. Aparte de desarrollar, me apasiona por la robótica y la electrónica, el camping y jugar voleibol con amigos, y en mi tiempo libre disfruto pasar tiempo con mis mascotas o videojuegos.</p>",
+    "location": "Ubicación",
+    "age": "Edad",
+    "nationality": {
+      "title": "Nacionalidad",
+      "description": "Chileno"
+    },
+    "interests": {
+      "title": "Intereses",
+      "description": "Desarrollo, Robótica, Camping, Voleibol"
+    },
+    "study": {
+      "title": "Estudios",
+      "description": "Universidad Andrés Bello"
+    },
+    "work": {
+      "title": "Trabajo",
+      "description": "Actualmente freelancing"
+    }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "databases": "Bases de Datos",
+    "tools_n_env": "Herramientas"
+  },
+  "contact": {
+    "title": "Creemos Proyectos Increíbles Juntos",
+    "description": "¿Listo para traer tus ideas a la realidad? Enviame un mensaje o retroalimentación. Siempre estoy abierto a nuevas oportunidades, mejorar y desafíos.",
+    "button": "Contáctame"
+  },  
+  "resume": "Ver Curriculum"
+}

@@ -86,8 +86,17 @@
     }
   },
   "education": {
-    "university": "Universidad Andrés Bello",
-    "high_school": "Liceo Luis Alberto Barrera"
+    "university": {
+      "title": "Universidad Andrés Bello",
+      "role": "Ingeniería en Computación e Informática"
+    },
+    "high_school": {
+      "title": "Liceo Luis Alberto Barrera",
+      "role": "Estudiante"
+    }
+  },
+  "languages": {
+    "native": "Nativo"
   },
   "cv_link": "Curriculum en Linea"
 }

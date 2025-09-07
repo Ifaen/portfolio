@@ -12,6 +12,8 @@ import portfolio_en from "../locales/en/portfolio.json";
 import portfolio_es from "../locales/es/portfolio.json";
 import paths_en from "../locales/en/paths.json";
 import paths_es from "../locales/es/paths.json";
+import navbar_en from "../locales/en/navbar.json";
+import navbar_es from "../locales/es/navbar.json";
 
 export default i18n.use(initReactI18next).init({
   resources: {
@@ -22,6 +24,7 @@ export default i18n.use(initReactI18next).init({
       certificates: certificates_en,
       portfolio: portfolio_en,
       paths: paths_en,
+      navbar: navbar_en,
     },
     es: {
       common: common_es,
@@ -30,6 +33,7 @@ export default i18n.use(initReactI18next).init({
       certificates: certificates_es,
       portfolio: portfolio_es,
       paths: paths_es,
+      navbar: navbar_es,
     },
   },
   // List of all namespaces
@@ -40,6 +44,7 @@ export default i18n.use(initReactI18next).init({
     "certificates",
     "portfolio",
     "paths",
+    "navbar",
   ],
   // Default namespace
   defaultNS: "common",

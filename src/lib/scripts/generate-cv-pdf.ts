@@ -21,7 +21,7 @@ async function launchBrowser() {
   });
 }
 
-async function generatePDF(lang: string) {
+async function generatePDF(lang: string, ats: boolean = false) {
   const browser = await launchBrowser();
   const page = await browser.newPage();
 
@@ -37,15 +37,18 @@ async function generatePDF(lang: string) {
   // Reload page
   await page.reload({ waitUntil: "networkidle0" });
 
-  // Isolate cv-content
-  await page.evaluate(() => {
-    const cv = document.getElementById("cv-content");
-    document.body.innerHTML = "";
-    document.body.appendChild(cv!.cloneNode(true));
-  });
+  if (!ats) {
+    await page.emulateMediaType("screen");
+
+    await page.evaluate(() => {
+      const cv = document.getElementById("cv-content");
+      document.body.innerHTML = "";
+      document.body.appendChild(cv!.cloneNode(true));
+    });
+  }
 
   await page.pdf({
-    path: `public/certificates/${lang}/Santiago-Fuentes-CV.pdf`,
+    path: `public/certificates/${lang}/Santiago-Fuentes-CV${ats ? "-ats" : ""}.pdf`,
     width: `${pxToMm(1200)}mm`,
     height: `${pxToMm(1694)}mm`,
     printBackground: true,
@@ -57,6 +60,7 @@ async function generatePDF(lang: string) {
 (async () => {
   for (const lang of LANGUAGES) {
     await generatePDF(lang);
+    await generatePDF(lang, true);
     console.log(`✔ PDF generated for ${lang}`);
   }
 })();

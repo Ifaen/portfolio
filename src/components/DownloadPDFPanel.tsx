@@ -11,8 +11,8 @@ export default function DownloadPDFPanel() {
 
   const { t } = useTranslation(["settings", "common"]);
 
-  async function downloadCVAsPDF() {
-    const fileName = `Santiago-Fuentes-CV.pdf`;
+  async function downloadCVAsPDF(atr: boolean = false) {
+    const fileName = `Santiago-Fuentes-CV${atr ? "-ats" : ""}.pdf`;
     const fileURL = `/certificates/${language}/${fileName}`;
 
     // Create an invisible link and trigger download
@@ -47,7 +47,7 @@ export default function DownloadPDFPanel() {
           setStage("height");
         }
       }}
-      className="fixed top-12 right-4 z-50 bg-[#d5c7bc] text-[#a13e2d] rounded shadow-lg border border-[#a13e2d] overflow-hidden"
+      className="print:hidden fixed top-12 right-4 z-50 bg-[#d5c7bc] text-[#a13e2d] rounded shadow-lg border border-[#a13e2d] overflow-hidden"
     >
       <button
         onClick={handleToggle}
@@ -79,7 +79,17 @@ export default function DownloadPDFPanel() {
                 {t("settings:download")}
               </label>
 
-              <button onClick={downloadCVAsPDF}>
+              <button onClick={() => downloadCVAsPDF(false)}>
+                <Download className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="flex justify-between items-center ">
+              <label className="text-sm font-semibold">
+                {t("settings:download_ats")}
+              </label>
+
+              <button onClick={() => downloadCVAsPDF(true)}>
                 <Download className="w-4 h-4" />
               </button>
             </div>

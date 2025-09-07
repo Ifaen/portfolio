@@ -42,23 +42,19 @@ export default function CurriculumVitae() {
     bullets: string[];
   }): JSX.Element {
     return (
-      <article className="grid grid-cols-2 sm:grid-cols-[5fr_1fr] md:grid-cols-[6fr_1fr] lg:grid-cols-[7fr_1fr] xl:grid-cols-[9fr_1fr] mx-4 mb-4 sm:mx-0">
+      <article className="grid grid-cols-2 sm:grid-cols-[5fr_1fr] md:grid-cols-[6fr_1fr] lg:grid-cols-[7fr_1fr] xl:grid-cols-[9fr_1fr] mx-4 mb-2 print:mb-0 sm:mx-0">
         <header>
           <h3 className="flex">
-            {props.url ? (
-              <a
-                href={props.url}
-                className="rounded transition-colors sm:text-lg hover:bg-amber-100"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <strong>{props.title}</strong>
-              </a>
-            ) : (
-              <span className="sm:text-lg">
-                <strong>{props.title}</strong>
-              </span>
-            )}
+            <a
+              href={props.url}
+              className={
+                props.url ? "rounded transition-colors hover:bg-amber-100" : ""
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>{props.title}</strong>
+            </a>
           </h3>
 
           <em className="hidden sm:block"> {props.role}</em>
@@ -82,6 +78,18 @@ export default function CurriculumVitae() {
     );
   }
 
+  function SoftSkillItem(props: {
+    name: string;
+    description: string;
+  }): JSX.Element {
+    return (
+      <article className="mx-4 sm:mx-0">
+        <h3 className="font-bold">{props.name}</h3>
+        <p className="text-sm">{props.description}</p>
+      </article>
+    );
+  }
+
   function HardSkillItem(props: {
     name: string;
     bullets: string[];
@@ -89,7 +97,7 @@ export default function CurriculumVitae() {
     return (
       <article className="mx-4 text-sm sm:mx-0">
         <h3 className="font-bold">{props.name}</h3>
-        <ul className="grid gap-y-1 gap-x-6 ml-6 list-disc sm:grid-cols-2">
+        <ul className="grid gap-y-1 gap-x-6 ml-6 list-disc sm:grid-cols-2 print:grid-cols-4">
           {props.bullets.map((item, i) => {
             const isLong = item.length > 25;
             return (
@@ -103,34 +111,36 @@ export default function CurriculumVitae() {
     );
   }
 
-  function SoftSkillItem(props: {
-    name: string;
-    description: string;
-  }): JSX.Element {
-    return (
-      <article className="mx-4 text-sm sm:mx-0">
-        <h3 className="font-bold">{props.name}</h3>
-        <p>{props.description}</p>
-      </article>
-    );
-  }
-
   function EducationItem(props: {
-    name: string;
-    location: string;
     date: string;
-    url: string;
+    location: string;
+    url?: string;
+    title: string;
+    role: string;
   }): JSX.Element {
     return (
-      <article className="mx-4 text-sm sm:mx-0">
-        <h3 className="font-bold">
-          <a href={props.url} target="_blank" rel="noopener noreferrer">
-            {props.name}
-          </a>
-        </h3>
-        <div className="flex justify-between ml-4 font-mono text-xs sm:justify-start sm:gap-12">
-          <p>{props.date}</p> <p>{props.location}</p>
-        </div>
+      <article className="grid grid-cols-[2fr_1fr] mx-4 sm:mx-0">
+        <header>
+          <h3 className="flex">
+            <a
+              href={props.url}
+              className={
+                props.url ? "rounded transition-colors hover:bg-amber-100" : ""
+              }
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <strong>{props.title}</strong>
+            </a>
+          </h3>
+
+          <span>{props.role}</span>
+        </header>
+
+        <aside className="flex flex-col justify-start items-end text-xs sm:justify-center">
+          <span>{props.date}</span>
+          <span>{props.location}</span>
+        </aside>
       </article>
     );
   }
@@ -141,9 +151,10 @@ export default function CurriculumVitae() {
     certificates?: Record<string, Certificate>;
   }): JSX.Element {
     return (
-      <article className="mx-4 text-sm sm:mx-0">
+      <article className="mx-4 sm:mx-0">
         <header className="flex justify-between">
           <h3 className="font-bold">{props.name}</h3>
+
           <div className="flex gap-1 items-center">
             {Array.from({ length: props.level }, (_, i) => (
               <Circle
@@ -157,7 +168,7 @@ export default function CurriculumVitae() {
           </div>
         </header>
 
-        {props.certificates && (
+        {props.certificates ? (
           <ul className="ml-6 list-disc">
             {Object.entries(props.certificates).map(([_, certificate], i) => (
               <li key={i} className="text-xs">
@@ -178,6 +189,8 @@ export default function CurriculumVitae() {
               </li>
             ))}
           </ul>
+        ) : (
+          <p className="ml-6">{t("curriculum_vitae:languages.native")}</p>
         )}
       </article>
     );
@@ -186,13 +199,15 @@ export default function CurriculumVitae() {
   function CVSection(props: {
     icon: JSX.Element;
     title: string;
-    children: JSX.Element;
+    children: JSX.Element | JSX.Element[];
   }): JSX.Element {
     return (
       <section className="flex flex-col gap-y-2">
         <header className="flex justify-center border-y border-[#a13e2d] text-[#a13e2d] items-center gap-2">
           {props.icon}
-          <h2 className="text-lg font-extrabold">{props.title}</h2>
+          <h2 className="text-lg print:text-normal font-extrabold">
+            {props.title}
+          </h2>
         </header>
         {props.children}
       </section>
@@ -203,20 +218,18 @@ export default function CurriculumVitae() {
     <div className="bg-gray-800">
       <main
         id="cv-content"
-        className="grid overflow-y-auto bg-white max-w-[1200px] max-h-[1694px] mx-auto "
+        className="grid bg-white max-w-[1200px] max-h-[1694px] mx-auto"
       >
-        <header className="grid sm:grid-cols-[1fr_3fr] bg-[#d5c7bc] p-8 gap-2 sm:gap-10">
+        <header className="grid sm:grid-cols-[1fr_3fr] bg-[#d5c7bc] p-8 print:p-2 gap-2 sm:gap-10">
           <div className="flex justify-center items-center">
             <img
               src={cvImage}
-              width={180}
-              height={180}
+              className="w-[180px] h-[180px] print:w-[120px] print:h-[120px] object-cover rounded-full"
               alt="Selfie of Santiago Fuentes"
-              className="object-cover rounded-full"
             />
           </div>
 
-          <section className="flex flex-col gap-y-2 justify-between">
+          <section className="flex flex-col gap-y-2 justify-between print:justify-normal">
             <div>
               <h1 className="grid text-2xl sm:text-xl md:text-2xl font-bold sm:flex sm:gap-3">
                 Santiago Fuentes
@@ -229,7 +242,7 @@ export default function CurriculumVitae() {
               <p className="hidden text-xl sm:block">{t("engineer")}</p>
             </div>
 
-            <address className="grid grid-cols-[1.5fr_1fr] sm:grid-cols-2 gap-y-1.5 justify-center items-center not-italic text-xs sm:text-lg">
+            <address className="grid grid-cols-[1.5fr_1fr] sm:grid-cols-2 print:grid-cols-3 gap-y-1.5 justify-center items-center not-italic text-xs sm:text-lg print:text-xs">
               <div className="flex gap-2 items-center">
                 <Phone className="w-4 h-4 stroke-[#a13e2d] stroke-3" />
                 <a href="tel:+56986890981">+56 9 8689 0981</a>
@@ -281,80 +294,122 @@ export default function CurriculumVitae() {
           </section>
         </header>
 
-        <section className="grid gap-y-8 sm:px-10 sm:py-6">
+        <section className="grid gap-y-8 print:gap-y-4 sm:px-10 sm:py-6 print:py-2">
           <CVSection
             icon={
-              <Briefcase className="w-5 h-5 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
+              <Briefcase className="w-5 h-5 print:w-4 print:h-4 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
             }
             title={t("curriculum_vitae:section.experience")}
           >
-            <>
-              <TimelineItem
-                date="01/2023 - Presente"
-                location="Punta Arenas, Chile"
-                url="https://www.instagram.com/aventuras_en_la_patagonia"
-                title={t(
-                  "curriculum_vitae:work_experience.aventuras_patagonia.title"
-                )}
-                role={t(
-                  "curriculum_vitae:work_experience.aventuras_patagonia.role"
-                )}
-                bullets={
-                  t(
-                    "curriculum_vitae:work_experience.aventuras_patagonia.bullets",
-                    {
-                      returnObjects: true,
-                    }
-                  ) as string[]
-                }
-              />
-              <TimelineItem
-                date="05/2025 - 06/2025"
-                location="Punta Arenas, Chile"
-                title={t("curriculum_vitae:work_experience.cim_glass.title")}
-                role={t("curriculum_vitae:work_experience.cim_glass.role")}
-                bullets={
-                  t("curriculum_vitae:work_experience.cim_glass.bullets", {
+            <TimelineItem
+              date="01/2023 - Presente"
+              location="Punta Arenas, Chile"
+              url="https://www.instagram.com/aventuras_en_la_patagonia"
+              title={t(
+                "curriculum_vitae:work_experience.aventuras_patagonia.title"
+              )}
+              role={t(
+                "curriculum_vitae:work_experience.aventuras_patagonia.role"
+              )}
+              bullets={
+                t(
+                  "curriculum_vitae:work_experience.aventuras_patagonia.bullets",
+                  {
                     returnObjects: true,
-                  }) as string[]
-                }
-              />
+                  }
+                ) as string[]
+              }
+            />
+            <TimelineItem
+              date="05/2025 - 06/2025"
+              location="Punta Arenas, Chile"
+              title={t("curriculum_vitae:work_experience.cim_glass.title")}
+              role={t("curriculum_vitae:work_experience.cim_glass.role")}
+              bullets={
+                t("curriculum_vitae:work_experience.cim_glass.bullets", {
+                  returnObjects: true,
+                }) as string[]
+              }
+            />
 
-              <TimelineItem
-                date="01/2025 - 03/2025"
-                location="Punta Arenas, Chile"
-                url="https://www.puntaarenas.cl"
-                title={t("curriculum_vitae:work_experience.municipality.title")}
-                role={t("curriculum_vitae:work_experience.municipality.role")}
-                bullets={
-                  t("curriculum_vitae:work_experience.municipality.bullets", {
-                    returnObjects: true,
-                  }) as string[]
-                }
-              />
+            <TimelineItem
+              date="01/2025 - 03/2025"
+              location="Punta Arenas, Chile"
+              url="https://www.puntaarenas.cl"
+              title={t("curriculum_vitae:work_experience.municipality.title")}
+              role={t("curriculum_vitae:work_experience.municipality.role")}
+              bullets={
+                t("curriculum_vitae:work_experience.municipality.bullets", {
+                  returnObjects: true,
+                }) as string[]
+              }
+            />
 
-              <TimelineItem
-                date="11/2023 - 01/2024"
-                location="Punta Arenas, Chile"
-                url="https://www.sernapesca.cl"
-                title={t("curriculum_vitae:work_experience.sernapesca.title")}
-                role={t("curriculum_vitae:work_experience.sernapesca.role")}
-                bullets={
-                  t("curriculum_vitae:work_experience.sernapesca.bullets", {
-                    returnObjects: true,
-                  }) as string[]
-                }
-              />
-            </>
+            <TimelineItem
+              date="11/2023 - 01/2024"
+              location="Punta Arenas, Chile"
+              url="https://www.sernapesca.cl"
+              title={t("curriculum_vitae:work_experience.sernapesca.title")}
+              role={t("curriculum_vitae:work_experience.sernapesca.role")}
+              bullets={
+                t("curriculum_vitae:work_experience.sernapesca.bullets", {
+                  returnObjects: true,
+                }) as string[]
+              }
+            />
           </CVSection>
 
           <CVSection
             icon={
-              <Terminal className="w-5 h-5 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
+              <CircleUser className="w-5 h-5 print:w-4 print:h-4 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
+            }
+            title={t("curriculum_vitae:section.soft_skills")}
+          >
+            <div className="grid grid-cols-2 gap-y-3 gap-x-6 print:grid-cols-1">
+              <SoftSkillItem
+                name={t("curriculum_vitae:soft_skills.learning.name")}
+                description={t(
+                  "curriculum_vitae:soft_skills.learning.description"
+                )}
+              />
+              <SoftSkillItem
+                name={t("curriculum_vitae:soft_skills.team.name")}
+                description={t("curriculum_vitae:soft_skills.team.description")}
+              />
+              <SoftSkillItem
+                name={t("curriculum_vitae:soft_skills.proactive.name")}
+                description={t(
+                  "curriculum_vitae:soft_skills.proactive.description"
+                )}
+              />
+              <SoftSkillItem
+                name={t("curriculum_vitae:soft_skills.resilence.name")}
+                description={t(
+                  "curriculum_vitae:soft_skills.resilence.description"
+                )}
+              />
+              <SoftSkillItem
+                name={t("curriculum_vitae:soft_skills.kindness.name")}
+                description={t(
+                  "curriculum_vitae:soft_skills.kindness.description"
+                )}
+              />
+              <SoftSkillItem
+                name={t("curriculum_vitae:soft_skills.empathy.name")}
+                description={t(
+                  "curriculum_vitae:soft_skills.empathy.description"
+                )}
+              />
+            </div>
+          </CVSection>
+
+          <CVSection
+            icon={
+              <Terminal className="w-5 h-5 bg-[#a13e2d] print:w-4 print:h-4 text-[#ffffff] rounded p-0.5" />
             }
             title={t("curriculum_vitae:section.hard_skills")}
           >
-            <div className="grid grid-cols-2 gap-y-2 gap-x-5">
+            <div className="grid grid-cols-2 print:grid-cols-1 gap-y-2 gap-x-6">
               <HardSkillItem
                 name={t("curriculum_vitae:hard_skills.languages.name")}
                 bullets={
@@ -398,97 +453,52 @@ export default function CurriculumVitae() {
             </div>
           </CVSection>
 
-          <CVSection
-            icon={
-              <CircleUser className="w-5 h-5 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
-            }
-            title={t("curriculum_vitae:section.soft_skills")}
-          >
-            <div className="grid grid-cols-2 gap-y-3 gap-x-5">
-              <SoftSkillItem
-                name={t("curriculum_vitae:soft_skills.learning.name")}
-                description={t(
-                  "curriculum_vitae:soft_skills.learning.description"
-                )}
-              />
-              <SoftSkillItem
-                name={t("curriculum_vitae:soft_skills.team.name")}
-                description={t("curriculum_vitae:soft_skills.team.description")}
-              />
-              <SoftSkillItem
-                name={t("curriculum_vitae:soft_skills.proactive.name")}
-                description={t(
-                  "curriculum_vitae:soft_skills.proactive.description"
-                )}
-              />
-              <SoftSkillItem
-                name={t("curriculum_vitae:soft_skills.resilence.name")}
-                description={t(
-                  "curriculum_vitae:soft_skills.resilence.description"
-                )}
-              />
-              <SoftSkillItem
-                name={t("curriculum_vitae:soft_skills.kindness.name")}
-                description={t(
-                  "curriculum_vitae:soft_skills.kindness.description"
-                )}
-              />
-              <SoftSkillItem
-                name={t("curriculum_vitae:soft_skills.empathy.name")}
-                description={t(
-                  "curriculum_vitae:soft_skills.empathy.description"
-                )}
-              />
-            </div>
-          </CVSection>
-
-          <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2 sm:gap-y-0">
+          <div className="grid gap-x-6 print:gap-y-4 gap-y-8 sm:grid-cols-2 print:grid-cols-1 sm:gap-y-0">
             <CVSection
               icon={
-                <GraduationCap className="w-5 h-5 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
+                <GraduationCap className="w-5 h-5 print:w-4 print:h-4 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
               }
               title={t("curriculum_vitae:section.education")}
             >
-              <>
-                <EducationItem
-                  name={t("curriculum_vitae:education.university")}
-                  location="Viña del Mar, Chile"
-                  date="2020 - 2024"
-                  url="https://www.unab.cl"
-                />
+              <EducationItem
+                title={t("curriculum_vitae:education.university.title")}
+                role={t("curriculum_vitae:education.university.role")}
+                location="Viña del Mar, Chile"
+                date="2020 - 2024"
+                url="https://www.unab.cl"
+              />
 
-                <EducationItem
-                  name={t("curriculum_vitae:education.high_school")}
-                  location="Punta Arenas, Chile"
-                  date="2015 - 2018"
-                  url="https://www.luisalbertobarrera.cl"
-                />
-              </>
+              <EducationItem
+                title={t("curriculum_vitae:education.high_school.title")}
+                role={t("curriculum_vitae:education.high_school.role")}
+                location="Punta Arenas, Chile"
+                date="2015 - 2018"
+                url="https://www.luisalbertobarrera.cl"
+              />
             </CVSection>
 
             <CVSection
               icon={
-                <Languages className="w-5 h-5 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
+                <Languages className="w-5 h-5 print:w-4 print:h-4 bg-[#a13e2d] text-[#ffffff] rounded p-0.5" />
               }
               title={t("curriculum_vitae:section.languages")}
             >
-              <>
-                <LanguageItem name={t("common:languages.es")} level={5} />
-                <LanguageItem
-                  name={t("common:languages.en")}
-                  level={4}
-                  certificates={
-                    t("certificates:categories.english", {
-                      returnObjects: true,
-                    }) as Record<string, Certificate>
-                  }
-                />
-              </>
+              <LanguageItem name={t("common:languages.es")} level={5} />
+
+              <LanguageItem
+                name={t("common:languages.en")}
+                level={4}
+                certificates={
+                  t("certificates:categories.english", {
+                    returnObjects: true,
+                  }) as Record<string, Certificate>
+                }
+              />
             </CVSection>
           </div>
         </section>
 
-        <footer className="grid px-10 pt-10 pb-12 sm:pt-4 sm:px-30">
+        <footer className="print:hidden grid px-10 pt-10 pb-8 sm:pt-4 sm:px-30">
           <div className="flex justify-center border-t py-4 border-[#a13e2d] text-[#a13e2d] items-center gap-2">
             <h2 className="text-xs font-extrabold">
               {t("curriculum_vitae:cv_link")}: sfuentes.cl/cv
